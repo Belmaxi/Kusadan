@@ -12,7 +12,7 @@ async def sign_in_handle(bot:Bot,event:Event,state:T_State):
     qqnum = str(event.get_user_id())
     reply=[]
     r = random.randint(30, 150)
-    file=open('C:\\bot\\nonebot\src\plugins\\nonebot_plugin_signin\data.json','r',encoding='utf-8')
+    file=open('data\\signindata\\data.json','r',encoding='utf-8')
     data=json.load(file)
     dayline = time.ctime()
     dayline = dayline.split()
@@ -56,10 +56,10 @@ async def sign_in_handle(bot:Bot,event:Event,state:T_State):
                     await sign_in.send('你今天断签了哦，可惜了')
 
             data[qqnum]['lastday'] = dayline
-            with open('C:\\bot\\nonebot\src\plugins\\nonebot_plugin_signin\data.json', 'w' ,encoding='utf-8') as f:
+            with open('data\\signindata\\data.json', 'w' ,encoding='utf-8') as f:
                 json.dump(data, f, indent=4)
     else:
-        f=open('C:\\bot\\nonebot\src\plugins\\nonebot_plugin_signin\data.json','w',encoding='utf-8')
+        f=open('data\\signindata\\data.json','w',encoding='utf-8')
         data[qqnum]={}
         data[qqnum]['身份'] = '普通人'
         data[qqnum]['累计签到'] = 1
@@ -90,7 +90,7 @@ Search=on_command('查询状态')
 @Search.handle()
 async def Search_handle(bot:Bot,event:Event,state:T_State):
     qqnum = str(event.get_user_id())
-    file = open('C:\\bot\\nonebot\src\plugins\\nonebot_plugin_signin\data.json', 'r', encoding='utf-8')
+    file = open('data\\signindata\\data.json', 'r', encoding='utf-8')
     data = json.load(file)
     reply = [
         {
