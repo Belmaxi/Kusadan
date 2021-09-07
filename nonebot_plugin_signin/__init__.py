@@ -12,7 +12,7 @@ async def sign_in_handle(bot:Bot,event:Event,state:T_State):
     qqnum = str(event.get_user_id())
     reply=[]
     r = random.randint(30, 150)
-    file=open('data\\signindata\\data.json','r',encoding='utf-8')
+    file=open('data//signindata//data.json','r',encoding='utf-8')
     data=json.load(file)
     dayline = time.ctime()
     dayline = dayline.split()
